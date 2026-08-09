@@ -151,6 +151,20 @@ body {
   }
 }
 
+@keyframes ken-burns {
+  from {
+    transform: scale(1) translate(0, 0);
+  }
+  to {
+    transform: scale(1.12) translate(-2.5%, -1.5%);
+  }
+}
+
+.ken-burns {
+  animation: ken-burns 22s ease-out forwards;
+  will-change: transform;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -193,6 +207,7 @@ body {
   .animate-hero-settle,
   .animate-fade-up,
   .animate-lightbox-in,
+  .ken-burns,
   .motion-safe-hidden {
     animation: none !important;
     opacity: 1 !important;
