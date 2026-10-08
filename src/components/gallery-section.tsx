@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { PortfolioImage } from "@/content/portfolio";
-import { Lightbox } from "@/components/lightbox";
+import { Lightbox, type LightboxImage } from "@/components/lightbox";
 import { cn } from "@/lib/utils";
 
 interface GallerySectionProps {

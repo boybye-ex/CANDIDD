@@ -3,10 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useId, useRef } from "react";
-import type { PortfolioImage } from "@/content/portfolio";
+
+export interface LightboxImage {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  year: number;
+  width: number;
+  height: number;
+  set?: string;
+}
 
 interface LightboxProps {
-  images: PortfolioImage[];
+  images: LightboxImage[];
   index: number | null;
   onClose: () => void;
   onNavigate: (index: number) => void;
@@ -81,7 +91,7 @@ export function Lightbox({
 
   if (!isOpen || !current) return null;
 
-  const inquireHref = `/?ref=${encodeURIComponent(current.id)}&set=${encodeURIComponent(current.set)}#contact`;
+  const inquireHref = `/?ref=${encodeURIComponent(current.id)}${current.set ? `&set=${encodeURIComponent(current.set)}` : ""}#contact`;
 
   return (
     <div
@@ -105,7 +115,7 @@ export function Lightbox({
               {current.title}
             </h2>
             <p className="mt-1 text-sm text-fg-muted">
-              {current.set} · {current.year}
+              {current.set ? `${current.set} · ` : ""}{current.year}
             </p>
           </div>
           <button
