@@ -6,7 +6,16 @@ export interface PortfolioImage {
   year: number;
   width: number;
   height: number;
-  set: "People" | "Places" | "Energy";
+  set: "People" | "Places" | "Energy" | "Editorial";
+}
+
+export interface CampaignImage {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  width: number;
+  height: number;
 }
 
 /**
@@ -175,6 +184,54 @@ export const portfolio: PortfolioImage[] = [
 
 export const ogImage = portfolio[0];
 
+/**
+ * "One Piece, Three Looks" — Earrings Campaign
+ * Editorial jewelry shoot featuring gold teardrop earrings with crystal orbs.
+ * Images ordered for optimal visual flow: close-up hero first.
+ */
+export const earringsCampaign: CampaignImage[] = [
+  {
+    id: "earrings-closeup",
+    src: "/portfolio/earrings-campaign/profile-closeup.webp",
+    alt: "Close-up profile of model wearing gold teardrop earring with crystal orb, tortoiseshell sunglasses against warm backdrop",
+    title: "Profile",
+    width: 941,
+    height: 1672,
+  },
+  {
+    id: "earrings-product",
+    src: "/portfolio/earrings-campaign/product-shot.webp",
+    alt: "Gold teardrop earrings with clear crystal orbs displayed on textured stone surface in natural sunlight",
+    title: "The Earrings",
+    width: 1024,
+    height: 1536,
+  },
+  {
+    id: "earrings-blazer",
+    src: "/portfolio/earrings-campaign/blazer-back.webp",
+    alt: "Model from behind in beige linen blazer showing gold teardrop earring against warm light",
+    title: "Soft Luxe",
+    width: 941,
+    height: 1672,
+  },
+  {
+    id: "earrings-reading",
+    src: "/portfolio/earrings-campaign/reading-seated.webp",
+    alt: "Model seated reading in beige suit with sunglasses, gold teardrop earring catching the light",
+    title: "Elevated",
+    width: 941,
+    height: 1672,
+  },
+  {
+    id: "earrings-collage",
+    src: "/portfolio/earrings-campaign/three-looks.webp",
+    alt: "Three looks styled with one piece: Everyday Casual, Evening Elevated, and Soft Luxe Neutrals featuring gold teardrop earrings",
+    title: "Three Looks",
+    width: 1024,
+    height: 1536,
+  },
+];
+
 export const shootTypes = [
   "Portrait",
   "Event",
@@ -185,7 +242,7 @@ export const shootTypes = [
 
 export type ShootType = (typeof shootTypes)[number];
 
-export const portfolioSets = ["People", "Places", "Energy"] as const;
+export const portfolioSets = ["People", "Places", "Energy", "Editorial"] as const;
 
 export type PortfolioSet = (typeof portfolioSets)[number];
 
